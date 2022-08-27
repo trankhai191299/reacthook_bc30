@@ -13,6 +13,10 @@ import UseRefDemo from "./pages/HookDemo/UseRefDemo/UseRefDemo";
 import { Provider } from "react-redux";
 import { store } from "./redux/configStore";
 import DemoNumber from "./pages/HookDemo/UseReduxDemo/DemoNumber/DemoNumber";
+import DemoFacebookApp from "./pages/HookDemo/UseReduxDemo/DemoFacebookApp/DemoFacebookApp";
+import LoginDemo from "./pages/HookDemo/UseHookRouter/LoginDemo/LoginDemo";
+import Home from "./pages/HookDemo/DemoUseParam/Home";
+import Detail from "./pages/HookDemo/DemoUseParam/Detail";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,12 +24,19 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="" element={<App />}>
+          <Route index element={<Home />}></Route>
+          <Route path="detail" >
+            <Route path=":id" element={<Detail />}></Route>
+          </Route>
           <Route path="useState" element={<UseStateDemo />}></Route>
           <Route path="useEffect" element={<UseEffectDemo />}></Route>
           <Route path="usecallback" element={<UseCallBackDemo />}></Route>
           <Route path="usememo" element={<UseMemoDemo />}></Route>
           <Route path="useref" element={<UseRefDemo />}></Route>
           <Route path="reduxdemonumber" element={<DemoNumber />}></Route>
+          <Route path="reduxdemonfbapp" element={<DemoFacebookApp />}></Route>
+          <Route path="logindemo" element={<LoginDemo />}></Route>
+          
         </Route>
       </Routes>
     </BrowserRouter>

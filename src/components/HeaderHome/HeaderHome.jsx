@@ -19,13 +19,13 @@ export default function HeaderHome() {
         <div className="collapse navbar-collapse" id="collapsibleNavId">
           <ul className="navbar-nav me-auto mt-2 mt-lg-0">
             <li className="nav-item active">
-              <NavLink className="nav-link" to="">
-                Home <span className="visually-hidden">(current)</span>
+              <NavLink className="nav-link" to="/logindemo">
+                Login Demo
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="">
-                Link
+                Home
               </NavLink>
             </li>
             <li className="nav-item dropdown">
@@ -72,6 +72,10 @@ export default function HeaderHome() {
                 <NavLink className="dropdown-item" to="/reduxdemonumber">
                   DemoNumber
                 </NavLink>
+                <NavLink className="dropdown-item" to="/reduxdemonfbapp">
+                  DemoFBApp
+                </NavLink>
+                
                 
               </div>
             </li>
