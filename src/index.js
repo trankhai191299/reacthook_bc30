@@ -15,9 +15,13 @@ import { store } from "./redux/configStore";
 import DemoNumber from "./pages/HookDemo/UseReduxDemo/DemoNumber/DemoNumber";
 import DemoFacebookApp from "./pages/HookDemo/UseReduxDemo/DemoFacebookApp/DemoFacebookApp";
 import LoginDemo from "./pages/HookDemo/UseHookRouter/LoginDemo/LoginDemo";
-import Home from "./pages/HookDemo/DemoUseParam/Home";
-import Detail from "./pages/HookDemo/DemoUseParam/Detail";
-
+import Home from "./pages/HookDemo/UseHookRouter/DemoUseParam/Home";
+import Detail from "./pages/HookDemo/UseHookRouter/DemoUseParam/Detail";
+import DemoUseSearchParam from "./pages/HookDemo/UseHookRouter/DemoUseSearchParam/DemoUseSearchParam";
+import DemoUseRoutes from "./pages/HookDemo/CustomHook/DemoUseRoutes";
+import 'antd/dist/antd.css';
+import AntdDemo from "./pages/AntdDemo/AntdDemo";
+import './assets/scss/style.scss'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
@@ -28,6 +32,8 @@ root.render(
           <Route path="detail" >
             <Route path=":id" element={<Detail />}></Route>
           </Route>
+          <Route path="search" element={<DemoUseSearchParam />}></Route>
+          <Route path="customhook" element={<DemoUseRoutes />}></Route>
           <Route path="useState" element={<UseStateDemo />}></Route>
           <Route path="useEffect" element={<UseEffectDemo />}></Route>
           <Route path="usecallback" element={<UseCallBackDemo />}></Route>
@@ -36,6 +42,7 @@ root.render(
           <Route path="reduxdemonumber" element={<DemoNumber />}></Route>
           <Route path="reduxdemonfbapp" element={<DemoFacebookApp />}></Route>
           <Route path="logindemo" element={<LoginDemo />}></Route>
+          <Route path="antd" element={<AntdDemo />}></Route>
           
         </Route>
       </Routes>
