@@ -23,6 +23,11 @@ export default function HeaderHome() {
                 Login Demo
               </NavLink>
             </li>
+            <li className="nav-item active">
+              <NavLink className="nav-link" to="/login">
+                Login (Authorize - token)
+              </NavLink>
+            </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="">
                 Home

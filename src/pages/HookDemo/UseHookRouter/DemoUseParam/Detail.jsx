@@ -1,25 +1,21 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {useParams,NavLink} from 'react-router-dom'
-
+import {getProductDetailApi} from '../../../../redux/reducers/productReducer'
 export default function Detail() {
-    const [productDetail,setProductDetail] = useState({})
+    // const [productDetail,setProductDetail] = useState({})
+    const {productDetail} = useSelector(state=>state.productReducer)
+    const dispatch = useDispatch()
     const params = useParams()
-    const getProductDetailApi = async() =>{
+    const getProductDetail = async() =>{
         let {id} = params
-        try{
-            let result = await axios({
-                url:`https://shop.cyberlearn.vn/api/Product/getbyid?id=${id}`,
-                method:"GET"
-            })
-            setProductDetail(result.data.content)
-        }catch(e){
-            console.log(e)
-        }
+        const actionThunk = getProductDetailApi(id)
+        dispatch(actionThunk)
     }
     useEffect(()=>{
-        getProductDetailApi()
-    },[])
+        getProductDetail()
+    },[params.id])
   return (
     <div className='container'>
         <h3>Params: Product - {params.id}</h3>
