@@ -27,10 +27,16 @@ import Login from "./pages/Login/Login";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Profile from "./pages/Profile/Profile";
+import HocDemo from "./pages/HocDemo/HocDemo";
+import AdminPage from "./pages/AdminPage/AdminPage";
+import AdminTemplate from "./templates/AdminTemplate";
+import { Drawer } from "antd";
+import DrawerHoc from "./HOC/DrawerHoc";
 export const history = createBrowserHistory({ window });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
+    <DrawerHoc/>
     <HistoryRouter history={history}>
       <Routes>
         <Route path="" element={<App />}>
@@ -38,6 +44,7 @@ root.render(
           <Route path="detail" >
             <Route path=":id" element={<Detail />}></Route>
           </Route>
+          <Route path="hocdemo" element={<HocDemo />}></Route>
           <Route path="profile" element={<Profile />}></Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="search" element={<DemoUseSearchParam />}></Route>
@@ -52,6 +59,13 @@ root.render(
           <Route path="logindemo" element={<LoginDemo />}></Route>
           <Route path="antd" element={<AntdDemo />}></Route>
           
+        </Route>
+      </Routes>
+      <Routes>
+        <Route path="admin" element={<AdminPage/>}>
+          <Route path="users" element={<AdminTemplate Component={AntdDemo}/>}></Route>
+          <Route index element={<AdminTemplate Component={Login}/>}></Route>
+          <Route path="useref" element={<AdminTemplate Component={UseRefDemo}/>}></Route>
         </Route>
       </Routes>
     </HistoryRouter>

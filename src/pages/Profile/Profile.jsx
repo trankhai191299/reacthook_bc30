@@ -15,11 +15,11 @@ export default function Profile() {
       dispatch(getProductApi())
     }
   },[])
-  if(!getStore(ACCESS_TOKEN)){
-    //neu chua dang nhap => chuyen huong trang
-    alert("Dang nhap de vao day")
-    return <Navigate to='/login'></Navigate>
-  }
+  // if(!getStore(ACCESS_TOKEN)){
+  //   //neu chua dang nhap => chuyen huong trang
+  //   alert("Dang nhap de vao day")
+  //   return <Navigate to='/login'></Navigate>
+  // }
   return (
     <div className='container-fluid'>
 
