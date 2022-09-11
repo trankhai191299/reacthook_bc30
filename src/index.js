@@ -32,6 +32,7 @@ import AdminPage from "./pages/AdminPage/AdminPage";
 import AdminTemplate from "./templates/AdminTemplate";
 import { Drawer } from "antd";
 import DrawerHoc from "./HOC/DrawerHoc";
+import TestPage from "./pages/TestPage/TestPage";
 export const history = createBrowserHistory({ window });
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -58,6 +59,7 @@ root.render(
           <Route path="reduxdemonfbapp" element={<DemoFacebookApp />}></Route>
           <Route path="logindemo" element={<LoginDemo />}></Route>
           <Route path="antd" element={<AntdDemo />}></Route>
+          <Route path="testpage" element={<TestPage />}></Route>
           
         </Route>
       </Routes>
